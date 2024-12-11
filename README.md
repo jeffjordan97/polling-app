@@ -1,3 +1,6 @@
+ <div><img src="https://github.com/jeffjordan97/polling-app/blob/master/polling-ui/public/assets/images/screenshot.png" alt="screenshot" width="100%" height="auto">
+ </div>
+
 # Polling Application
 
 This project is a **polling application** that allows users to vote in real-time on a currently active poll and view the active poll results, following their vote. The application consists of a backend server implemented in Java with Spring Boot, a UI implemented in Angular, and a MySQL database. Real-time updates are enabled using Server-Sent Events (SSE).
