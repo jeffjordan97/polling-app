@@ -1,0 +1,43 @@
+<img src="assets/images/logo.png" alt="Logo" class="logo" />
+<div class="poll-container" *ngIf="poll">
+  <h1 class="poll-name">{{ poll.name }}</h1>
+
+  <form
+    [formGroup]="voteForm"
+    [ngClass]="{ 'form-disabled': submitted }"
+    (ngSubmit)="submitVote()"
+  >
+    <div class="btn-group" role="group" aria-label="Poll Options">
+      <button
+        *ngFor="let option of poll?.options"
+        type="button"
+        class="btn"
+        [class.active]="voteForm.controls['selectedOption'].value === option"
+        [disabled]="submitted"
+        (click)="selectOption(option)"
+      >
+        <span>{{ option }}</span>
+        <span class="percentage" *ngIf="submitted && votePercentages[option]"
+          >{{ votePercentages[option].toFixed(0) }}%</span
+        >
+        <div
+          class="percentage-bar"
+          *ngIf="submitted"
+          [ngStyle]="{ width: (votePercentages[option] || 0) + '%' }"
+        ></div>
+      </button>
+    </div>
+
+    <button
+      type="submit"
+      [hidden]="submitted"
+      class="btn btn-submit"
+      [disabled]="!voteForm.valid"
+    >
+      SUBMIT
+    </button>
+  </form>
+</div>
+<div class="loading-message" *ngIf="!poll">
+  <p>Poll has not yet started.</p>
+</div>
