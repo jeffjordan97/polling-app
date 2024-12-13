@@ -42,6 +42,7 @@ This project is a **polling application** that allows users to vote in real-time
 | `/api/polls/name/{name}`                | GET    | Get a poll by its name.                 |
 | `/api/polls/all`                        | GET    | Get all polls.                          |
 | `/api/votes`                            | POST   | Submit a vote.                          |
+| `/api/votes/{pollId}`                   | GET    | Get all votes for a poll.               |
 | `/api/votes/{pollId}/percentageResults` | GET    | Get vote percentage results for a poll. |
 | `/api/polls/updates`                    | SSE    | Endpoint for real-time poll updates.    |
 | `/api/votes/updates`                    | SSE    | Endpoint for real-time vote updates.    |
